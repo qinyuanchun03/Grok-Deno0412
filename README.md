@@ -45,6 +45,28 @@ From the root directory of the project:
 deno task deno:deploy
 ```
 
+### Option 4: Simple Deployment (Recommended for Troubleshooting)
+
+If you're experiencing issues with the other deployment methods, try the simplified deployment script:
+
+```bash
+# Navigate to this directory
+cd deploy-deno
+
+# Deploy with default project name
+deno run --allow-run simple-deploy.ts
+
+# Deploy with custom project name
+deno run --allow-run simple-deploy.ts my-xai-proxy
+```
+
+Or from the root directory:
+
+```bash
+# Deploy using deno task
+deno task deno:simple-deploy
+```
+
 ## Local Development
 
 You can run the proxy locally for development:
