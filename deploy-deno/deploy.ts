@@ -1,6 +1,6 @@
 /**
  * Xai API Proxy Deployment Script for Deno Deploy
- * 
+ *
  * This script helps deploy the Xai API proxy to Deno Deploy.
  */
 
@@ -53,9 +53,9 @@ EXAMPLES:
         stdout: "piped",
         stderr: "piped",
       });
-      
+
       const status = await process.status();
-      
+
       if (!status.success) {
         console.error("deployctl not found. Please install it with: deno install -A --no-check -r -f https://deno.land/x/deploy/deployctl.ts");
         throw new Error("deployctl not found");
@@ -68,29 +68,30 @@ EXAMPLES:
 
     // Deploy to Deno Deploy
     console.log(`Deploying to Deno Deploy with project name: ${args.project}...`);
-    
+
     const command = [
-      "deployctl", 
-      "deploy", 
-      "--project", 
-      args.project, 
-      "--prod", 
+      "deployctl",
+      "deploy",
+      "--project",
+      args.project,
+      "--prod",
+      "--allow-net=api.xai.com",
       "../src/deno_entry.ts"
     ];
-    
+
     const process = Deno.run({
       cmd: command,
       stdout: "inherit",
       stderr: "inherit",
     });
-    
+
     const status = await process.status();
-    
+
     if (!status.success) {
       console.error("Deno Deploy deployment failed. Check the error messages above.");
       throw new Error("Deno Deploy deployment failed");
     }
-    
+
     console.log("\nDeno Deploy deployment successful!");
     console.log(`Your API is now available at: https://${args.project}.deno.dev/`);
     console.log("\nNext steps:");

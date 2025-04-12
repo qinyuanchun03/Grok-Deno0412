@@ -20,7 +20,7 @@
   },
   "tasks": {
     "start": "deno run --allow-net ../src/deno_entry.ts",
-    "deploy": "deployctl deploy --project=xai-api-proxy --prod ../src/deno_entry.ts"
+    "deploy": "deployctl deploy --project=xai-api-proxy --prod --allow-net=api.xai.com ../src/deno_entry.ts"
   },
   "importMap": "../import_map.json"
 }
