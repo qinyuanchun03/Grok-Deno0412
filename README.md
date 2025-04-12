@@ -67,6 +67,27 @@ Or from the root directory:
 deno task deno:simple-deploy
 ```
 
+### Option 5: Minimal Deployment (For ISOLATE_INTERNAL_FAILURE errors)
+
+If you're encountering `ISOLATE_INTERNAL_FAILURE` errors, use the minimal deployment script:
+
+```bash
+# Navigate to this directory
+cd deploy-deno
+
+# Deploy with minimal options
+deno run --allow-run minimal-deploy.ts
+```
+
+Or from the root directory:
+
+```bash
+# Deploy using deno task
+deno task deno:minimal-deploy
+```
+
+This uses a simplified entry point (`minimal_entry.ts`) that avoids import maps and other features that might cause issues.
+
 ## Local Development
 
 You can run the proxy locally for development:
